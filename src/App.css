@@ -47,7 +47,7 @@
   --font: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --header-h: 64px;
   --tabs-h: 52px;
-  --mobile-nav-h: 64px;
+  --mobile-nav-h: 60px;
 }
 
 /* ---------- Reset & Base ---------- */
@@ -622,8 +622,13 @@ img {
 .header-right {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  flex-shrink: 0;
 }
+
+/* Logo responsive */
+.logo-short { display: none; }
+.logo-full  { display: inline; }
 
 .header-user-chip {
   display: flex;
@@ -1948,20 +1953,108 @@ img {
   box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55);
 }
 
-/* Mobile adjustments for header buttons */
+/* ===== MOBILE FIXES ===== */
 @media (max-width: 640px) {
+
+  /* --- Logo switch on mobile --- */
+  .logo-full  { display: none; }
+  .logo-short { display: inline; }
+
+  /* --- Header mobile fix --- */
+  .header {
+    padding: 0 12px;
+  }
+
+  .header-inner {
+    gap: 6px;
+  }
+
+  .header-logo {
+    font-size: 1.1rem;
+    gap: 4px;
+  }
+
+  .header-logo-icon {
+    font-size: 1.3rem;
+  }
+
+  /* Hide college badge in header on mobile to save space */
+  .header-college-badge {
+    display: none;
+  }
+
+  /* Make user chip compact */
+  .header-user-chip {
+    padding: 5px 8px 5px 5px;
+    font-size: 0.75rem;
+    gap: 5px;
+    max-width: 110px;
+    overflow: hidden;
+  }
+
+  .header-user-chip > div > div:first-child {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 80px;
+  }
+
+  .header-avatar {
+    width: 26px;
+    height: 26px;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* Invite button — icon only on mobile */
   .invite-btn {
-    padding: 5px 10px;
+    padding: 6px 10px;
     font-size: 0.72rem;
   }
 
+  /* Live count — very compact */
   .live-count-badge {
-    padding: 4px 8px;
-    font-size: 0.7rem;
+    padding: 4px 7px;
+    font-size: 0.68rem;
+    gap: 3px;
   }
 
+  /* Logout btn compact */
+  .header-logout-btn {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+
+  /* --- Mobile bottom nav: 6 tabs fix --- */
+  .mobile-nav {
+    height: 60px;
+  }
+
+  .mobile-nav-btn {
+    font-size: 0.52rem;
+    gap: 2px;
+    padding: 0 2px;
+  }
+
+  .mobile-nav-btn .nav-icon {
+    font-size: 1.15rem;
+  }
+
+  /* --- Leaderboard mobile --- */
   .leaderboard-name {
-    max-width: 150px;
+    max-width: 130px;
+    font-size: 0.78rem;
+  }
+
+  .leaderboard-count {
+    font-size: 0.68rem;
+  }
+
+  /* --- Share button compact on mobile --- */
+  .share-wa-btn {
+    padding: 5px 8px;
+    font-size: 0.7rem;
   }
 }
 

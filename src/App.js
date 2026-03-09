@@ -926,7 +926,8 @@ function App() {
         <div className="header-inner">
           <div className="header-logo">
             <span className="header-logo-icon">🔥</span>
-            GossipTNClg
+            <span className="logo-full">GossipTNClg</span>
+            <span className="logo-short">TNClg</span>
           </div>
           <div className="header-right">
             {liveCount > 0 && (
