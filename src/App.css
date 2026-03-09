@@ -1646,12 +1646,18 @@ img {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 640px) {
+  /* Use top tab nav on mobile — hide bottom nav */
   .mobile-nav {
-    display: flex;
+    display: none;
   }
 
   .tab-nav {
-    display: none;
+    display: block;
+  }
+
+  /* No bottom nav padding needed */
+  .app {
+    padding-bottom: 0;
   }
 
   .content {
@@ -1959,6 +1965,17 @@ img {
   /* --- Logo switch on mobile --- */
   .logo-full  { display: none; }
   .logo-short { display: inline; }
+
+  /* --- Top tab nav compact on mobile --- */
+  .tab-btn {
+    padding: 10px 14px;
+    font-size: 0.78rem;
+    gap: 4px;
+  }
+
+  .tab-btn .tab-icon {
+    font-size: 0.95rem;
+  }
 
   /* --- Header mobile fix --- */
   .header {
