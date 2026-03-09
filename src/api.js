@@ -44,8 +44,8 @@ export const getSocket = () => socket;
 
 // ===== AUTH API =====
 
-export const register = async (email, password) => {
-  const response = await api.post('/api/auth/register', { email, password });
+export const register = async (email, password, college) => {
+  const response = await api.post('/api/auth/register', { email, password, college });
   if (response.data.token) {
     localStorage.setItem('token', response.data.token);
     localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -91,11 +91,6 @@ export const reactToPost = async (postId, reactionType) => {
   return response.data;
 };
 
-export const deletePost = async (postId) => {
-  const response = await api.delete(`/api/posts/${postId}`);
-  return response.data;
-};
-
 // ===== EVENT API =====
 
 export const getEvents = async () => {
@@ -134,6 +129,48 @@ export const votePoll = async (pollId, optionIndex) => {
 
 export const getTrending = async () => {
   const response = await api.get('/api/trending');
+  return response.data;
+};
+
+// ===== ADMIN API =====
+
+export const getAdminStats = async () => {
+  const response = await api.get('/api/admin/stats');
+  return response.data;
+};
+
+export const getPendingEvents = async () => {
+  const response = await api.get('/api/admin/pending-events');
+  return response.data;
+};
+
+export const deleteEvent = async (eventId) => {
+  const response = await api.delete(`/api/events/${eventId}`);
+  return response.data;
+};
+
+export const deletePostAdmin = async (postId) => {
+  const response = await api.delete(`/api/admin/posts/${postId}`);
+  return response.data;
+};
+
+export const reportPost = async (postId, reason) => {
+  const response = await api.post(`/api/posts/${postId}/report`, { reason });
+  return response.data;
+};
+
+export const getReportedPosts = async () => {
+  const response = await api.get('/api/admin/reported-posts');
+  return response.data;
+};
+
+export const banUser = async (userId, reason) => {
+  const response = await api.post('/api/admin/ban-user', { userId, reason });
+  return response.data;
+};
+
+export const clearReport = async (postId) => {
+  const response = await api.put(`/api/admin/posts/${postId}/clear-report`);
   return response.data;
 };
 
