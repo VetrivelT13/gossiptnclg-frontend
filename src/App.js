@@ -84,7 +84,7 @@ const ADMIN_TABS = [
 ];
 
 const MAX_CHARS = 500;
-const SITE_URL = 'https://gossiptnclg.vercel.app';
+const SITE_URL = 'https://gossiptnclg-frontend.vercel.app';
 
 // ===== UTILITIES =====
 
